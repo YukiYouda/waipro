@@ -27,6 +27,14 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'skill',
+        'career',
+        'twitter_account',
+        'facebook_account',
+        'instagram_account',
+        'qiita_account',
+        'github_account',
+        'self_pr',
     ];
 
     /**

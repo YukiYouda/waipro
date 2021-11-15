@@ -65,6 +65,63 @@
             <x-jet-input id="email" type="email" class="mt-1 block w-full" wire:model.defer="state.email" />
             <x-jet-input-error for="email" class="mt-2" />
         </div>
+
+        <!-- skill -->
+        <div class="col-span-6 sm:col-span-4">
+            <x-jet-label for="skill" value="{{ __('スキル') }}" />
+            <x-jet-input id="skill" type="skill" class="mt-1 block w-full" wire:model.defer="state.skill" />
+            <x-jet-input-error for="skill" class="mt-2" />
+        </div>
+
+        <!-- career -->
+        <div class="col-span-6 sm:col-span-4">
+            <x-jet-label for="career" value="{{ __('経歴') }}" />
+            <x-jet-input id="carrer" type="carrer" class="mt-1 block w-full" wire:model.defer="state.career" />
+            <x-jet-input-error for="career" class="mt-2" />
+        </div>
+
+        <!-- twitter_account -->
+        <div class="col-span-6 sm:col-span-4">
+            <x-jet-label for="twitter_account" value="{{ __('twitterアカウント') }}" />
+            <x-jet-input id="twitter_account" type="twitter_account" class="mt-1 block w-full" wire:model.defer="state.twitter_account" />
+            <x-jet-input-error for="twitter_account" class="mt-2" />
+        </div>
+
+        <!-- facebook_account -->
+        <div class="col-span-6 sm:col-span-4">
+            <x-jet-label for="facebook_account" value="{{ __('facebookアカウント') }}" />
+            <x-jet-input id="facebook_account" type="facebook_account" class="mt-1 block w-full" wire:model.defer="state.facebook_account" />
+            <x-jet-input-error for="facebook_account" class="mt-2" />
+        </div>
+
+        <!-- instagram_account -->
+        <div class="col-span-6 sm:col-span-4">
+            <x-jet-label for="instagram_account" value="{{ __('instagramアカウント') }}" />
+            <x-jet-input id="instagram_account" type="instagram_account" class="mt-1 block w-full" wire:model.defer="state.instagram_account" />
+            <x-jet-input-error for="instagram_account" class="mt-2" />
+        </div>
+
+        <!-- qiita_account -->
+        <div class="col-span-6 sm:col-span-4">
+            <x-jet-label for="qiita_account" value="{{ __('qiitaアカウント') }}" />
+            <x-jet-input id="qiita_account" type="qiita_account" class="mt-1 block w-full" wire:model.defer="state.qiita_account" />
+            <x-jet-input-error for="qiita_account" class="mt-2" />
+        </div>
+
+        <!-- github_account -->
+        <div class="col-span-6 sm:col-span-4">
+            <x-jet-label for="github_account" value="{{ __('githubアカウント') }}" />
+            <x-jet-input id="github_account" type="github_account" class="mt-1 block w-full" wire:model.defer="state.github_account" />
+            <x-jet-input-error for="github_account" class="mt-2" />
+        </div>
+
+        <!-- Profile -->
+        <div class="col-span-6 sm:col-span-4">
+            <x-jet-label for="self_pr" value="{{ __('自己PR') }}" />
+            <textarea name="self_pr" id="self_pr" cols="30" rows="5" class="border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm block mt-1 w-full" required  wire:model.defer="state.self_pr" ></textarea>
+            <x-jet-input-error for="self_pr" class="mt-2" />
+        </div>
+
     </x-slot>
 
     <x-slot name="actions">
