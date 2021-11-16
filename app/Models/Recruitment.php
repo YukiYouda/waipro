@@ -8,4 +8,24 @@ use Illuminate\Database\Eloquent\Model;
 class Recruitment extends Model
 {
     use HasFactory;
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
+
+    public function messages()
+    {
+        return $this->hasMany(Message::class);
+    }
+
+    public function entries()
+    {
+        return $this->hasMany(Entry::class);
+    }
 }
