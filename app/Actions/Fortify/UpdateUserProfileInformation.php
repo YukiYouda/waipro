@@ -44,7 +44,7 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
                 'name' => $input['name'],
                 'email' => $input['email'],
                 'skill' => $input['skill'],
-                'career' => $input['carrer'],
+                'career' => $input['career'],
                 'twitter_account' => $input['twitter_account'],
                 'facebook_account' => $input['facebook_account'],
                 'instagram_account' => $input['instagram_account'],
