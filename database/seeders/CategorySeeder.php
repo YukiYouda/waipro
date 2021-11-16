@@ -14,6 +14,14 @@ class CategorySeeder extends Seeder
      */
     public function run()
     {
-        
+        Category::create(['name' => 'Laravel']);
+        Category::create(['name' => 'PHP']);
+        Category::create(['name' => 'Javascript']);
+        Category::create(['name' => 'Django']);
+        Category::create(['name' => 'Python']);
+        Category::create(['name' => 'React']);
+        Category::create(['name' => 'Ruby']);
+        Category::create(['name' => 'Ruby on Rails']);
+        Category::create(['name' => 'Vue.js']);
     }
 }
