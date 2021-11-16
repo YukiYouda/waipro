@@ -16,11 +16,11 @@ class CreateMessagesTable extends Migration
         Schema::create('messages', function (Blueprint $table) {
             $table->id();
             $table->text('comment');
-            $table->foreignId('recruitment_id')
+            $table->foreignId('user_id')
                 ->constrained()
                 ->cascadeOnUpdate()
                 ->cascadeOnDelete();
-            $table->foreignId('user_id')
+            $table->foreignId('recruitment_id')
                 ->constrained()
                 ->cascadeOnUpdate()
                 ->cascadeOnDelete();
