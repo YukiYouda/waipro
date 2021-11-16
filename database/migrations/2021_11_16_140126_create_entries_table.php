@@ -25,6 +25,7 @@ class CreateEntriesTable extends Migration
                 ->cascadeOnUpdate()
                 ->cascadeOnDelete();
             $table->timestamps();
+            $table->unique(['recruitment_id', 'user_id']);
         });
     }
 
