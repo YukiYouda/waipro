@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Recruitment;
 use Illuminate\Http\Request;
+use App\Models\Category;
 
 class RecruitmentController extends Controller
 {
@@ -24,7 +25,8 @@ class RecruitmentController extends Controller
      */
     public function create()
     {
-        //
+        $categories = Category::all();
+        return view('recruitments.create', compact('categories'));
     }
 
     /**
@@ -57,7 +59,7 @@ class RecruitmentController extends Controller
      */
     public function edit(Recruitment $recruitment)
     {
-        //
+        
     }
 
     /**
