@@ -126,6 +126,19 @@ class RecruitmentController extends Controller
      */
     public function destroy(Recruitment $recruitment)
     {
-        //
+        if (auth()->user()->id != $recruitment->user->id) {
+            return redirect()->route('recruitments.show', $recruitment)
+                ->withErrors('自分の募集情報以外は削除できません');
+        } else {
+            
+            try {
+                $recruitment->delete();
+            } catch (\Exception $e) {
+                return back()->withInput()
+                    ->withErrors('募集情報削除処理でエラーが発生しました');
+            }
+            return redirect()->route('recruitments.index')
+                ->with('notice', '募集情報を削除しました');
+        }
     }
 }
