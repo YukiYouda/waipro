@@ -127,5 +127,20 @@ return [
             'rule-name' => 'custom-message',
         ],
     ],
-    'attributes'           => [],
+    'attributes'           => [
+        'name' => '作成するアプリ名',
+        'description' => 'アプリの概要',
+        'period' => '作業期間',
+        'number' => '募集人数',
+        'due_date' => '募集期限',
+        'gain' => '得られるもの',
+        'caution' => '注意事項',
+        'comment' => '一言',
+        'category_id' => '主な使用言語',
+    ],
+    'values' => [
+        'due_date' => [
+            'yesterday' => '昨日',
+        ]
+    ]
 ];
