@@ -28,7 +28,7 @@ class RecruitmentController extends Controller
 
             $category = $request->category;
             $recruitments->appends(compact('category'));
-            
+
             $categories = Category::all();
 
             return view('recruitments.index', compact('recruitments', 'categories'));
@@ -88,7 +88,8 @@ class RecruitmentController extends Controller
      */
     public function edit(Recruitment $recruitment)
     {
-        
+        $categories = Category::all();
+        return view('recruitments.edit', compact('recruitment', 'categories'));
     }
 
     /**
@@ -100,7 +101,21 @@ class RecruitmentController extends Controller
      */
     public function update(RecruitmentRequest $request, Recruitment $recruitment)
     {
-        //
+        if (auth()->user()->id != $recruitment->user->id) {
+            return redirect()->route('recruitments.show', $recruitment)
+                ->withErrors('自分の募集情報以外は更新できません');
+        } else {
+            $recruitment->fill($request->all());
+
+            try {
+                $recruitment->save();
+            } catch (\Exception $e) {
+                return back()->withInput()
+                    ->withErrors('募集情報更新処理でエラーが発生しました');
+            }
+            return redirect()->route('recruitments.show', $recruitment)
+                ->with('notice', '募集情報を更新しました');
+        }
     }
 
     /**

@@ -23,10 +23,12 @@ class RecruitmentRequest extends FormRequest
      */
     public function rules()
     {
-        return [
+        $route = $this->route()->getName();
+
+        $rule = [
             'name' => 'required|string|max:50',
             'description' => 'required|string|max:2000',
-            'period' => 'required|string|max:50', 
+            'period' => 'required|string|max:50',
             'number' => 'required|string|max:20',
             'due_date' => 'required|after:yesterday',
             'gain' => 'required|string|max:2000',
@@ -34,5 +36,11 @@ class RecruitmentRequest extends FormRequest
             'comment' => 'required|string|max:2000',
             'category_id' => 'required|exists:categories,id',
         ];
+
+        if ($route == 'recruitments.update') {
+            $rule['due_date'] = 'required|date';
+        }
+
+        return $rule;
     }
 }

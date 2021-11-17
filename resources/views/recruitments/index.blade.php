@@ -1,11 +1,11 @@
 <x-app-layout>
     <div class="container mx-auto w-3/5 my-8 px-4 py-4">
-        <div class="flex justify-end items-center mb-3">
+        {{-- <div class="flex justify-end items-center mb-3">
             <h4 class="text-gray-400 text-sm">並び替え</h4>
             <ul class="flex">
                 <li class="ml-4"><a href="" class="hover:text-blue-500">新着</a></li>
             </ul>
-        </div>
+        </div> --}}
         <div class="flex justify-between">
             <div class="w-2/5">
                 <h3 class="mb-3 text-gray-400 text-sm">検索条件</h3>
