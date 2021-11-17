@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\EntryController;
 use App\Http\Controllers\RecruitmentController;
 use Illuminate\Support\Facades\Route;
 
@@ -22,4 +23,8 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 })->name('dashboard');
 
 Route::resource('recruitments', RecruitmentController::class)
+    ->middleware('auth');
+
+Route::resource('recruitments.entries', EntryController::class)
+    ->only(['store', 'destroy'])
     ->middleware('auth');

@@ -77,7 +77,11 @@ class RecruitmentController extends Controller
      */
     public function show(Recruitment $recruitment)
     {
-        return view('recruitments.show', compact('recruitment'));
+        $entry = '';
+        $entry = $recruitment->entries()
+            ->where('user_id', auth()->user()->id)->first();
+
+        return view('recruitments.show', compact('recruitment', 'entry'));
     }
 
     /**
