@@ -6,6 +6,7 @@ use App\Http\Requests\RecruitmentRequest;
 use App\Models\Recruitment;
 use App\Models\Category;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Http\Request;
 
 class RecruitmentController extends Controller
 {
@@ -14,9 +15,24 @@ class RecruitmentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        $user = auth()->user();
+
+        if (empty($user)) {
+            return view('welcome');
+        } else {
+            $params = $request->query();
+            $recruitments = Recruitment::search($params)->openData()
+                ->with(['user', 'category'])->latest()->paginate(5);
+
+            $category = $request->category;
+            $recruitments->appends(compact('category'));
+            
+            $categories = Category::all();
+
+            return view('recruitments.index', compact('recruitments', 'categories'));
+        }
     }
 
     /**

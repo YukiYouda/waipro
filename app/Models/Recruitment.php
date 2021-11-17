@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -21,6 +22,22 @@ class Recruitment extends Model
         'user_id',
         'category_id',
     ];
+
+    public function scopeOpenData(Builder $query)
+    {
+        $query->where('due_date', '>=', now());
+
+        return $query;
+    }
+
+    public function scopeSearch(Builder $query, $params)
+    {
+        if(!empty($params['category'])) {
+            $query->where('category_id', $params['category']);
+        }
+
+        return $query;
+    }
 
     public function user()
     {
