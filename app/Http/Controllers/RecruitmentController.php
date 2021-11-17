@@ -61,7 +61,7 @@ class RecruitmentController extends Controller
      */
     public function show(Recruitment $recruitment)
     {
-        //
+        return view('recruitments.show', compact('recruitment'));
     }
 
     /**
