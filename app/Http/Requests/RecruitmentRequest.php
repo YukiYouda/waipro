@@ -29,10 +29,9 @@ class RecruitmentRequest extends FormRequest
             'period' => 'required|string|max:50', 
             'number' => 'required|string|max:20',
             'due_date' => 'required|after:yesterday',
-            'gain' => 'required|string|2000',
-            'caution' => 'required|string|2000',
-            'comment' => 'required|string|2000',
-            'user_id' => 'required|exists:users,id',
+            'gain' => 'required|string|max:2000',
+            'caution' => 'required|string|max:2000',
+            'comment' => 'required|string|max:2000',
             'category_id' => 'required|exists:categories,id',
         ];
     }

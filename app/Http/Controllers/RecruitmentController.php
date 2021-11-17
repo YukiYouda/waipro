@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\RecruitmentRequest;
 use App\Models\Recruitment;
-use Illuminate\Http\Request;
 use App\Models\Category;
+use Illuminate\Support\Facades\DB;
 
 class RecruitmentController extends Controller
 {
@@ -32,12 +33,24 @@ class RecruitmentController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Http\Requests\RecruitmentRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(RecruitmentRequest $request)
     {
-        //
+        $recruitment = new Recruitment($request->all());
+        $recruitment->user_id = $request->user()->id;
+
+        try {
+            $recruitment->save();
+        } catch (\Exception $e) {
+            return back()->withInput()
+                ->withErrors('募集情報登録処理でエラーが発生しました');
+        }
+
+        return redirect()
+            ->route('recruitments.show', $recruitment)
+            ->with('notice', '募集情報を登録しました');
     }
 
     /**
@@ -65,11 +78,11 @@ class RecruitmentController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Http\Requests\RecruitmentRequest  $request
      * @param  \App\Models\Recruitment  $recruitment
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Recruitment $recruitment)
+    public function update(RecruitmentRequest $request, Recruitment $recruitment)
     {
         //
     }
