@@ -145,4 +145,14 @@ class RecruitmentController extends Controller
                 ->with('notice', '募集情報を削除しました');
         }
     }
+
+    public function dashboard()
+    {
+        $recruitments = Recruitment::latest()
+            ->with('entries')
+            ->MyRecruitment()
+            ->paginate(5);
+        
+        return view('auth.recruitment-dashboard', compact('recruitments'));
+    }
 }

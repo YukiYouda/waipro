@@ -18,9 +18,13 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [RecruitmentController::class, 'index'])
     ->name('root');
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return view('dashboard');
-})->name('dashboard');
+// Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+//     return view('dashboard');
+// })->name('dashboard');
+
+Route::get('recruitments/dashboard', [RecruitmentController::class, 'dashboard'])
+    ->middleware('auth')
+    ->name('recruitments.dashboard');
 
 Route::resource('recruitments', RecruitmentController::class)
     ->middleware('auth');
@@ -28,3 +32,7 @@ Route::resource('recruitments', RecruitmentController::class)
 Route::resource('recruitments.entries', EntryController::class)
     ->only(['store', 'destroy'])
     ->middleware('auth');
+
+Route::get('entries/dashboard', [EntryController::class, 'dashboard'])
+    ->middleware('auth')
+    ->name('entries.dashboard');

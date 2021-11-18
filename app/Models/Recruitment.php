@@ -39,6 +39,13 @@ class Recruitment extends Model
         return $query;
     }
 
+    public function scopeMyRecruitment(Builder $query)
+    {
+        $query->where('user_id', auth()->user()->id);
+
+        return $query;
+    }
+
     public function user()
     {
         return $this->belongsTo(User::class);

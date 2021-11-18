@@ -101,4 +101,9 @@ class EntryController extends Controller
         return redirect()->route('recruitments.show', $recruitment)
             ->with('notice', 'エントリーを取り消しました');
     }
+
+    public function dashboard()
+    {
+        return view('auth.entry.dashbord');
+    }
 }
