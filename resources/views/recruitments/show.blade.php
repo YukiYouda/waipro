@@ -33,7 +33,7 @@
             <p class="text-gray-700 text-base">一言:{!! nl2br(e($recruitment->comment)) !!}</p>
         </article>
         <div class="flex flex-col sm:flex-row items-center sm:justify-end text-center my-4">
-            @if (Auth::check())
+            @if (Auth::check() && auth()->user()->id != $recruitment->user_id)
                 @if (empty($entry))
                     <form action="{{ route('recruitments.entries.store', $recruitment) }}" method="post">
                         @csrf
@@ -62,5 +62,32 @@
                 </form>
             @endcan
         </div>
+        @if (!empty($entries))
+            <hr>
+            <h2 class="flex justify-center font-bold text-lg my-4">エントリー一覧</h2>
+            <div class="">
+                <table class="min-w-full table-fixed text-center">
+                    <thead>
+                        <tr class="text-gray-700 ">
+                            <th class="w-1/5 px-4 py-2">名前</th>
+                            <th class="w-1/5 px-4 py-2">エントリー日</th>
+                            <th class="w-1/5 px-4 py-2">ステータス</th>
+                            <th class="w-2/5 px-4 py-2"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($entries as $entry)
+                            <tr>
+                                <td>{{ $entry->user->name }}</td>
+                                <td>{{ $entry->created_at->format('Y-m-d') }}</td>
+                                <td>{{ array_search($entry->status, EntryConst::STATUS_LIST) }}</td>
+                                <td>
+                                </td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
+        @endif
     </div>
 </x-app-layout>

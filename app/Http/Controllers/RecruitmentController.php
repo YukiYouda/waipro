@@ -7,6 +7,7 @@ use App\Models\Recruitment;
 use App\Models\Category;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class RecruitmentController extends Controller
 {
@@ -19,9 +20,7 @@ class RecruitmentController extends Controller
     {
         $user = auth()->user();
 
-        if (empty($user)) {
-            return view('welcome');
-        } else {
+        if (Auth::check()) {
             $params = $request->query();
             $recruitments = Recruitment::search($params)->openData()
                 ->with(['user', 'category'])->latest()->paginate(5);
@@ -32,6 +31,8 @@ class RecruitmentController extends Controller
             $categories = Category::all();
 
             return view('recruitments.index', compact('recruitments', 'categories'));
+        } else {
+            return view('welcome');
         }
     }
 
@@ -78,10 +79,16 @@ class RecruitmentController extends Controller
     public function show(Recruitment $recruitment)
     {
         $entry = '';
+        $entries = [];
+
         $entry = $recruitment->entries()
             ->where('user_id', auth()->user()->id)->first();
 
-        return view('recruitments.show', compact('recruitment', 'entry'));
+        if (Auth::check() && auth()->user()->id == $recruitment->user_id) {
+            $entries = $recruitment->entries()->with('user')->get();
+        }
+
+        return view('recruitments.show', compact('recruitment', 'entry', 'entries'));
     }
 
     /**
