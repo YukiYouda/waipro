@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Consts\EntryConst;
 use App\Models\Entry;
 use App\Models\Recruitment;
 use Illuminate\Http\Request;
@@ -108,6 +109,22 @@ class EntryController extends Controller
             $query->where('user_id', auth()->user()->id);
         })->get();
 
-        return view('auth.entry-dashboard', compact('recruitments'));
+        return view('recruitments.entry-dashboard', compact('recruitments'));
+    }
+
+    public function approval(Recruitment $recruitment, Entry $entry) {
+        $entry->status = EntryConst::STATUS_APPROVAL;
+        $entry->save();
+
+        return redirect()->route('recruitments.show', $recruitment)
+            ->with('notice', 'エントリーを承認しました');
+    }
+
+    public function reject(Recruitment $recruitment, Entry $entry) {
+        $entry->status = EntryConst::STATUS_REJECT;
+        $entry->save();
+
+        return redirect()->route('recruitments.show', $recruitment)
+            ->with('notice', 'エントリーを却下しました');
     }
 }

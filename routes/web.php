@@ -2,7 +2,9 @@
 
 use App\Http\Controllers\EntryController;
 use App\Http\Controllers\RecruitmentController;
+use App\Models\Recruitment;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,3 +38,15 @@ Route::resource('recruitments.entries', EntryController::class)
 Route::get('entries/dashboard', [EntryController::class, 'dashboard'])
     ->middleware('auth')
     ->name('entries.dashboard');
+
+Route::get('user', [UserController::class, 'profile'])
+    ->middleware('auth')
+    ->name('user.profile');
+
+Route::patch('/recruitments/{recruitment}/entries/{entry}/approval', [EntryController::class, 'approval'])
+    ->name('recruitments.entries.approval')
+    ->middleware('auth');
+
+Route::patch('/recruitments/{recruitment}/entries/{entry}/reject', [EntryController::class, 'reject'])
+    ->name('recruitments.entries.reject')
+    ->middleware('auth');

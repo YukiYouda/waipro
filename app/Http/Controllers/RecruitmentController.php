@@ -160,6 +160,6 @@ class RecruitmentController extends Controller
             ->MyRecruitment()
             ->paginate(5);
         
-        return view('auth.recruitment-dashboard', compact('recruitments'));
+        return view('recruitments.recruitment-dashboard', compact('recruitments'));
     }
 }
