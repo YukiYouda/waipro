@@ -104,6 +104,10 @@ class EntryController extends Controller
 
     public function dashboard()
     {
-        return view('auth.entry.dashbord');
+        $recruitments = Recruitment::whereHas('entries', function ($query){
+            $query->where('user_id', auth()->user()->id);
+        })->get();
+
+        return view('auth.entry-dashboard', compact('recruitments'));
     }
 }
