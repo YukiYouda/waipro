@@ -53,5 +53,5 @@ Route::patch('/recruitments/{recruitment}/entries/{entry}/reject', [EntryControl
     ->middleware('auth');
 
 Route::resource('entries.messages', MessageController::class)
-    ->only(['index', 'show', 'create', 'destroy'])
+    ->only(['index', 'show', 'create', 'store', 'destroy'])
     ->middleware('auth');

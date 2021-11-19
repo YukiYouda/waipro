@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\MessageRequest;
+use App\Models\Entry;
 use App\Models\Message;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class MessageController extends Controller
@@ -12,9 +15,9 @@ class MessageController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Entry $entry)
     {
-        //
+        return view('messages.index', compact('entry'));
     }
 
     /**
@@ -30,12 +33,27 @@ class MessageController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \App\Http\Requests\MessageRequest  $messagerequest
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(MessageRequest $request, Entry $entry)
     {
-        //
+        $message = new Message([
+            'comment' => $request->comment,
+            'recruitment_id' => $entry->recruitment_id,
+            'user_id' => $entry->user_id,
+        ]);
+
+        try {
+            $message->save();
+        } catch (\Exception $e) {
+            return back()->withInput()
+                ->withErrors('送信でエラーが発生しました');
+        }
+
+        return redirect()
+            ->route('entries.messages.index', $entry)
+            ->with('notice', '送信しました');
     }
 
     /**
