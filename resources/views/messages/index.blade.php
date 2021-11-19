@@ -4,7 +4,7 @@
     <x-validation-errors :errors="$errors" />
 
     <div class="container lg:w-1/2 md:w-4/5 w-11/12 mx-auto mt-8 px-8 bg-white shadow-md">
-        <h2 class="text-center text-lg font-bold pt-6 tracking-widest">{{ $entry->user->name }}さんとのメッセージ</h2>
+        <h2 class="text-center text-lg font-bold pt-6 tracking-widest">メッセージ</h2>
         <form action="{{ route('entries.messages.store', $entry) }}" method="POST" class="rounded pt-3 pb-8 mb-4">
             @csrf
             <div class="mb-4">
@@ -22,7 +22,7 @@
 
     @foreach ($messages as $message)
         <div class="container lg:w-1/2 md:w-4/5 w-11/12 mx-auto mt-3 px-8 bg-white shadow-md">
-            {{ $message->created_at }} {{ auth()->user()->name }} <br>
+            {{ $message->created_at }} {{ $message->user->name }} <br>
             {{ $message->body }}
         </div>
     @endforeach

@@ -43,7 +43,7 @@ class MessageController extends Controller
         $message = new Message([
             'body' => $request->body,
             'entry_id' => $entry->id,
-            'user_id' => $entry->user_id,
+            'user_id' => auth()->user()->id,
         ]);
 
         try {
