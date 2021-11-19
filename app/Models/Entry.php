@@ -24,4 +24,9 @@ class Entry extends Model
     {
         return $this->belongsTo(Recruitment::class);
     }
+
+    public function messages()
+    {
+        return $this->hasMany(Message::class);
+    }
 }

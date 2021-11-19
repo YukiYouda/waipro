@@ -20,8 +20,8 @@ class Message extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function recruitment()
+    public function entry()
     {
-        return $this->belongsTo(Recruitment::class);
+        return $this->belongsTo(Entry::class);
     }
 }

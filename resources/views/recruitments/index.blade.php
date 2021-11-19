@@ -12,7 +12,7 @@
             </div>
             <div class="w-full">
                 @foreach ($recruitments as $recruitment)
-                    <div class="bg-white w-full px-10 py-8 hover:shadow-2xl transition duration-500">
+                    <div class="bg-white w-full px-10 py-8 hover:shadow-2xl transition duration-500 mb-10">
                         <div class="mt-4">
                             <div class="flex justify-between text-sm items-center mb-4">
                                 <div class="border border-gray-900 px-2 h-7 leading-7 rounded-full">{{ $recruitment->category->name }}</div>

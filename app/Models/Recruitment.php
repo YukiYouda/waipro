@@ -56,11 +56,6 @@ class Recruitment extends Model
         return $this->belongsTo(Category::class);
     }
 
-    public function messages()
-    {
-        return $this->hasMany(Message::class);
-    }
-
     public function entries()
     {
         return $this->hasMany(Entry::class);
