@@ -137,6 +137,7 @@ return [
         'caution' => '注意事項',
         'comment' => '一言',
         'category_id' => '主な使用言語',
+        'body' => '本文',
     ],
     'values' => [
         'due_date' => [
