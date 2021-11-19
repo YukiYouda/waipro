@@ -116,7 +116,7 @@ class EntryController extends Controller
         $entry->status = EntryConst::STATUS_APPROVAL;
         $entry->save();
 
-        return redirect()->route('recruitments.show', $recruitment)
+        return redirect()->route('entries.messages.index', $entry)
             ->with('notice', 'エントリーを承認しました');
     }
 

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\EntryController;
+use App\Http\Controllers\MessageController;
 use App\Http\Controllers\RecruitmentController;
 use App\Models\Recruitment;
 use Illuminate\Support\Facades\Route;
@@ -39,7 +40,7 @@ Route::get('entries/dashboard', [EntryController::class, 'dashboard'])
     ->middleware('auth')
     ->name('entries.dashboard');
 
-Route::get('user', [UserController::class, 'profile'])
+Route::get('user/{user}', [UserController::class, 'profile'])
     ->middleware('auth')
     ->name('user.profile');
 
@@ -49,4 +50,8 @@ Route::patch('/recruitments/{recruitment}/entries/{entry}/approval', [EntryContr
 
 Route::patch('/recruitments/{recruitment}/entries/{entry}/reject', [EntryController::class, 'reject'])
     ->name('recruitments.entries.reject')
+    ->middleware('auth');
+
+Route::resource('entries.messages', MessageController::class)
+    ->only(['index', 'show', 'create', 'destroy'])
     ->middleware('auth');

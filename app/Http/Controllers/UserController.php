@@ -8,8 +8,8 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
-    public function profile(Recruitment $recruitment)
+    public function profile(User $user)
     {
-        return view('recruitments.profile');
+        return view('recruitments.profile', compact('user'));
     }
 }
