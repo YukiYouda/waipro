@@ -17,7 +17,8 @@ class MessageController extends Controller
      */
     public function index(Entry $entry)
     {
-        $messages = Message::where('recruitment_id', $entry->recruitment_id)->get();
+    
+        $messages = Message::where('entry_id', $entry->id)->get();
         return view('messages.index', compact('entry', 'messages'));
     }
 
@@ -40,9 +41,9 @@ class MessageController extends Controller
     public function store(MessageRequest $request, Entry $entry)
     {
         $message = new Message([
-            'comment' => $request->comment,
-            'recruitment_id' => $entry->recruitment_id,
-            'user_id' => auth()->user()->id,
+            'body' => $request->body,
+            'entry_id' => $entry->id,
+            'user_id' => $entry->user_id,
         ]);
 
         try {
