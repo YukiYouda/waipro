@@ -47,6 +47,10 @@ Route::group(['middleware' => ['api']], function(){
     Route::patch('/recruitments/{recruitment}/entries/{entry}/approval', [EntryController::class, 'approval'])
         ->name('recruitments.entries.approval')
         ->middleware('auth:sanctum');
+
+    Route::patch('/recruitments/{recruitment}/entries/{entry}/reject', [EntryController::class, 'reject'])
+        ->name('recruitments.entries.reject')
+        ->middleware('auth:sanctum');
 });
 
 // ユーザー登録

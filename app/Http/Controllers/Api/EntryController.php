@@ -88,4 +88,12 @@ class EntryController extends Controller
 
         return $entry;
     }
+
+    public function reject(Recruitment $recruitment, Entry $entry)
+    {
+        $entry->status = EntryConst::STATUS_REJECT;
+        $entry->save();
+
+        return $entry; 
+    }
 }
