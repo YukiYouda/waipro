@@ -106,3 +106,9 @@ GET /api/entries/dashboard HTTP/1.1
 Host: localhost
 Accept: application/json
 Authorization: Bearer 5|wVfqbehy2tZh2ffDQOHxkXcr1iAe4r2DunuokrWV
+
+### UserController
+GET /api/user/10 HTTP/1.1
+Host: localhost
+Accept: application/json
+Authorization: Bearer 5|wVfqbehy2tZh2ffDQOHxkXcr1iAe4r2DunuokrWV

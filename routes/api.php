@@ -6,6 +6,7 @@ use App\Http\Controllers\Api\RecruitmentController;
 use App\Http\Controllers\Api\RegisterController;
 use App\Http\Controllers\Api\LoginController;
 use App\Http\Controllers\Api\EntryController;
+use App\Http\Controllers\Api\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,6 +40,9 @@ Route::group(['middleware' => ['api']], function(){
         ->only(['store', 'destroy'])
         ->middleware('auth:sanctum');
     
+    Route::get('user/{user}', [UserController::class, 'profile'])
+        ->middleware('auth:sanctum')
+        ->name('user.profile');
     
 });
 
