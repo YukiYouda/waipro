@@ -1,0 +1,102 @@
+### RecruitmentController
+### index
+GET /api/recruitments HTTP/1.1
+Host: localhost
+Accept: application/json
+Authorization: Bearer 3|vRpdutL8z22T4tgSyTzSEcG6EHwrBr50MF9zQnYI
+
+### store
+POST /api/recruitments
+Host: localhost
+Accept: application/json
+Content-Type: application/json
+Authorization: Bearer 3|vRpdutL8z22T4tgSyTzSEcG6EHwrBr50MF9zQnYI
+
+{
+    "name" : "マッチングアプリ",
+    "description" : "マッチングをするアプリです。",
+    "period" : "150~200時間程度",
+    "number" : "3人程度",
+    "due_date" : "2022-12-25",
+    "gain" : "git管理",
+    "caution" : "週最低10時間は開発できる時間を確保してください",
+    "comment" : "一緒に楽しく学びましょう！",
+    "category_id" : "1"
+}
+
+### show
+GET /api/recruitments/1 HTTP/1.1
+Host: localhost
+Accept: application/json
+Content-Type: application/json
+Authorization: Bearer 3|vRpdutL8z22T4tgSyTzSEcG6EHwrBr50MF9zQnYI
+
+### update
+PUT /api/recruitments/1
+Host: localhost
+Accept: application/json
+Content-Type: application/json
+Authorization: Bearer 3|vRpdutL8z22T4tgSyTzSEcG6EHwrBr50MF9zQnYI
+
+{
+    "name" : "マッチングアプリ",
+    "description" : "マッチングをするアプリです。",
+    "period" : "150~200時間程度",
+    "number" : "3人程度",
+    "due_date" : "2022-12-25",
+    "gain" : "git管理",
+    "caution" : "週最低10時間は開発できる時間を確保してください",
+    "comment" : "一緒に楽しく学びましょう！",
+    "category_id" : "1"
+}
+
+### destroy
+DELETE /api/recruitments/1 HTTP/1.1
+Host: localhost
+Accept: application/json
+Authorization: Bearer 3|vRpdutL8z22T4tgSyTzSEcG6EHwrBr50MF9zQnYI
+
+### dashboard
+GET /api/recruitments/dashboard HTTP/1.1
+Host: localhost
+Accept: application/json
+Authorization: Bearer 4|zfMYhikEnuuN4KTXiW5cTU69zGfMK6JMRVBFEgRR
+
+### RegisterController
+### register
+POST /api/register
+Host: localhost
+Accept: application/json
+Content-Type: application/json
+
+{
+    "name" : "ようだ",
+    "email" : "yu-ki.0518.4656@ezweb.ne.jp",
+    "password" : "password"
+}
+
+### LoginController
+### login
+POST /api/login
+Host: localhost
+Accept: application/json
+Content-Type: application/json
+
+{
+    "email" : "youda0518@yahoo.co.jp",
+    "password" : "50610518"
+}
+
+### EntryController
+### store
+POST /api/recruitments/40/entries/
+Host: localhost
+Accept: application/json
+Content-Type: application/json
+Authorization: Bearer 5|wVfqbehy2tZh2ffDQOHxkXcr1iAe4r2DunuokrWV
+
+### destroy
+DELETE /api/recruitments/40/entries/40 HTTP/1.1
+Host: localhost
+Accept: application/json
+Authorization: Bearer  5|wVfqbehy2tZh2ffDQOHxkXcr1iAe4r2DunuokrWV
