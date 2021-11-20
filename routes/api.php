@@ -7,6 +7,7 @@ use App\Http\Controllers\Api\RegisterController;
 use App\Http\Controllers\Api\LoginController;
 use App\Http\Controllers\Api\EntryController;
 use App\Http\Controllers\Api\UserController;
+use App\Http\Controllers\Api\MessageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -50,6 +51,10 @@ Route::group(['middleware' => ['api']], function(){
 
     Route::patch('/recruitments/{recruitment}/entries/{entry}/reject', [EntryController::class, 'reject'])
         ->name('recruitments.entries.reject')
+        ->middleware('auth:sanctum');
+
+    Route::resource('entries.messages', MessageController::class)
+        ->only(['index', 'show', 'create', 'store', 'destroy'])
         ->middleware('auth:sanctum');
 });
 
