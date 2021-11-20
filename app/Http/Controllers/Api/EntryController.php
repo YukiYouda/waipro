@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Entry;
 use App\Models\Recruitment;
+use App\Consts\EntryConst;
 
 class EntryController extends Controller
 {
@@ -78,5 +79,13 @@ class EntryController extends Controller
         })->get();
 
         return $recruitments;
+    }
+
+    public function approval(Recruitment $recruitment, Entry $entry)
+    {
+        $entry->status = EntryConst::STATUS_APPROVAL;
+        $entry->save();
+
+        return $entry;
     }
 }

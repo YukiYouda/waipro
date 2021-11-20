@@ -26,24 +26,27 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::group(['middleware' => ['api']], function(){
 
     Route::get('recruitments/dashboard', [RecruitmentController::class, 'dashboard'])
-    ->middleware('auth:sanctum')
-    ->name('recruitments.dashboard');
+    ->name('recruitments.dashboard')
+    ->middleware('auth:sanctum');
 
     Route::apiResource('recruitments', RecruitmentController::class)
         ->middleware('auth:sanctum');
     
     Route::get('entries/dashboard', [EntryController::class, 'dashboard'])
-    ->middleware('auth:sanctum')
-    ->name('entries.dashboard');
+    ->name('entries.dashboard')
+    ->middleware('auth:sanctum');
     
     Route::apiResource('recruitments.entries', EntryController::class)
         ->only(['store', 'destroy'])
         ->middleware('auth:sanctum');
     
     Route::get('user/{user}', [UserController::class, 'profile'])
-        ->middleware('auth:sanctum')
-        ->name('user.profile');
-    
+        ->name('user.profile')
+        ->middleware('auth:sanctum');
+
+    Route::patch('/recruitments/{recruitment}/entries/{entry}/approval', [EntryController::class, 'approval'])
+        ->name('recruitments.entries.approval')
+        ->middleware('auth:sanctum');
 });
 
 // ユーザー登録
