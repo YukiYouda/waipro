@@ -31,6 +31,10 @@ Route::group(['middleware' => ['api']], function(){
     Route::apiResource('recruitments', RecruitmentController::class)
         ->middleware('auth:sanctum');
     
+    Route::get('entries/dashboard', [EntryController::class, 'dashboard'])
+    ->middleware('auth:sanctum')
+    ->name('entries.dashboard');
+    
     Route::apiResource('recruitments.entries', EntryController::class)
         ->only(['store', 'destroy'])
         ->middleware('auth:sanctum');

@@ -70,4 +70,13 @@ class EntryController extends Controller
     {
         $entry->delete();
     }
+
+    public function dashboard()
+    {
+        $recruitments = Recruitment::whereHas('entries', function ($query) {
+            $query->where('user_id', auth()->user()->id);
+        })->get();
+
+        return $recruitments;
+    }
 }
