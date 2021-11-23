@@ -17,20 +17,21 @@ class RecruitmentController extends Controller
      */
     public function index(Request $request)
     {
-        $params = $request->query();
-        $recruitments = Recruitment::search($params)->openData()
-            ->with(['user', 'category'])->latest()->paginate(5);
+        // $params = $request->query();
+        // $recruitments = Recruitment::search($params)->openData()
+        //     ->with(['user', 'category'])->latest()->paginate(5);
 
-        $category = $request->category;
-        $recruitments->appends(compact('category'));
+        // $category = $request->category;
+        // $recruitments->appends(compact('category'));
 
-        $categories = Category::all();
+        // $categories = Category::all();
+        // return ["recruitments" => $recruitments, "categories" => $categories];
 
-        return ["recruitments" => $recruitments, "categories" => $categories];
-        // $recruitments = Recruitment::all();
+        $recruitments = Recruitment::all();
+        $recruitments->load('user', 'category');
 
-        // return $recruitments;
-
+        return  $recruitments;
+        
     }
 
     /**
@@ -55,6 +56,7 @@ class RecruitmentController extends Controller
      */
     public function show(Recruitment $recruitment)
     {
+        $recruitment->load('user', 'category');
         return $recruitment;
     }
 
