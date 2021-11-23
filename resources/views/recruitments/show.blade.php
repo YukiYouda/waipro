@@ -31,12 +31,127 @@
                     <h3 class="text-lg h-10 leading-10">{{ $recruitment->user->name }}</h3>
                 </a>
             </div>
-            <p class="text-gray-700 text-base">アプリの概要:{!! nl2br(e($recruitment->description)) !!}</p>
-            <p class="text-gray-700 text-base">作業期間:{!! nl2br(e($recruitment->period)) !!}</p>
-            <p class="text-gray-700 text-base">募集人数:{!! nl2br(e($recruitment->number)) !!}</p>
-            <p class="text-gray-700 text-base">得られるもの:{!! nl2br(e($recruitment->gain)) !!}</p>
-            <p class="text-gray-700 text-base">注意事項:{!! nl2br(e($recruitment->caution)) !!}</p>
-            <p class="text-gray-700 text-base">一言:{!! nl2br(e($recruitment->comment)) !!}</p>
+
+            <div class="px-4 py-5 rounded-t sm:px-6">
+                <div class="bg-white dark:bg-gray-800 shadow overflow-hidden sm:rounded-md">
+                    <ul class="divide-y divide-gray-200">
+                        <li>
+                            <a class="block hover:bg-gray-50 dark:hover:bg-gray-900">
+                                <div class="px-4 py-4 sm:px-6">
+                                    <div class="flex items-center justify-between">
+                                        <p class="text-md text-gray-700 dark:text-white md:truncate">
+                                            アプリの概要
+                                        </p>
+                                    </div>
+                                    <div class="mt-2 sm:flex sm:justify-between">
+                                        <div class="sm:flex">
+                                            <p
+                                                class="flex items-center text-md font-light text-gray-500 dark:text-gray-300">
+                                                {{ $recruitment->description }}
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="block hover:bg-gray-50 dark:hover:bg-gray-900">
+                                <div class="px-4 py-4 sm:px-6">
+                                    <div class="flex items-center justify-between">
+                                        <p class="text-md text-gray-700 dark:text-white md:truncate">
+                                            作業期間
+                                        </p>
+                                    </div>
+                                    <div class="mt-2 sm:flex sm:justify-between">
+                                        <div class="sm:flex">
+                                            <p
+                                                class="flex items-center text-md font-light text-gray-500 dark:text-gray-300">
+                                                {{ $recruitment->period }}
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="block hover:bg-gray-50 dark:hover:bg-gray-900">
+                                <div class="px-4 py-4 sm:px-6">
+                                    <div class="flex items-center justify-between">
+                                        <p class="text-md text-gray-700 dark:text-white md:truncate">
+                                            募集人数
+                                        </p>
+                                    </div>
+                                    <div class="mt-2 sm:flex sm:justify-between">
+                                        <div class="sm:flex">
+                                            <p
+                                                class="flex items-center text-md font-light text-gray-500 dark:text-gray-300">
+                                                {{ $recruitment->number }}
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="block hover:bg-gray-50 dark:hover:bg-gray-900">
+                                <div class="px-4 py-4 sm:px-6">
+                                    <div class="flex items-center justify-between">
+                                        <p class="text-md text-gray-700 dark:text-white md:truncate">
+                                            得られるもの
+                                        </p>
+                                    </div>
+                                    <div class="mt-2 sm:flex sm:justify-between">
+                                        <div class="sm:flex">
+                                            <p
+                                                class="flex items-center text-md font-light text-gray-500 dark:text-gray-300">
+                                                {{ $recruitment->gain }}
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="block hover:bg-gray-50 dark:hover:bg-gray-900">
+                                <div class="px-4 py-4 sm:px-6">
+                                    <div class="flex items-center justify-between">
+                                        <p class="text-md text-gray-700 dark:text-white md:truncate">
+                                            注意事項
+                                        </p>
+                                    </div>
+                                    <div class="mt-2 sm:flex sm:justify-between">
+                                        <div class="sm:flex">
+                                            <p
+                                                class="flex items-center text-md font-light text-gray-500 dark:text-gray-300">
+                                                {{ $recruitment->caution }}
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="block hover:bg-gray-50 dark:hover:bg-gray-900">
+                                <div class="px-4 py-4 sm:px-6">
+                                    <div class="flex items-center justify-between">
+                                        <p class="text-md text-gray-700 dark:text-white md:truncate">
+                                            一言
+                                        </p>
+                                    </div>
+                                    <div class="mt-2 sm:flex sm:justify-between">
+                                        <div class="sm:flex">
+                                            <p
+                                                class="flex items-center text-md font-light text-gray-500 dark:text-gray-300">
+                                                {{ $recruitment->comment }}
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </article>
         <div class="flex flex-col sm:flex-row items-center sm:justify-end text-center my-4">
             @if (Auth::check() && auth()->user()->id != $recruitment->user_id)
@@ -47,7 +162,8 @@
                             class="w-full sm:w-40 bg-gradient-to-r from-indigo-500 to-blue-600 hover:bg-gradient-to-l hover:from-blue-500 hover:to-indigo-600 text-gray-100 p-2 rounded-full tracking-wide font-semibold shadow-lg cursor-pointer transition ease-in duration-500 w-full sm:w-32">
                     </form>
                 @else
-                    <a href="{{ route('entries.messages.index', $entry) }}" class="w-full sm:w-32 bg-gradient-to-r from-indigo-500 to-blue-600 hover:bg-gradient-to-l hover:from-blue-500 hover:to-indigo-600 text-gray-100 p-2 rounded-full tracking-wide font-semibold shadow-lg cursor-pointer transition ease-in duration-500 w-full sm:w-32">メッセージ</a>
+                    <a href="{{ route('entries.messages.index', $entry) }}"
+                        class="w-full sm:w-32 bg-gradient-to-r from-indigo-500 to-blue-600 hover:bg-gradient-to-l hover:from-blue-500 hover:to-indigo-600 text-gray-100 p-2 rounded-full tracking-wide font-semibold shadow-lg cursor-pointer transition ease-in duration-500 w-full sm:w-32 mr-2">メッセージ</a>
                     <form action="{{ route('recruitments.entries.destroy', [$recruitment, $entry]) }}" method="post">
                         @csrf
                         @method('DELETE')
@@ -94,7 +210,7 @@
                                 <td>
                                     <div class="flex flex-col sm:flex-row items-center sm:justify-end text-center">
                                         <a href="{{ route('entries.messages.index', $entry) }}"
-                                            class="w-full sm:w-32 bg-gradient-to-r from-indigo-500 to-blue-600 hover:bg-gradient-to-l hover:from-blue-500 hover:to-indigo-600 text-gray-100 p-2 rounded-full tracking-wide font-semibold shadow-lg cursor-pointer transition ease-in duration-500 w-full sm:w-32">メッセージ</a>
+                                            class="w-full sm:w-32 bg-gradient-to-r from-indigo-500 to-blue-600 hover:bg-gradient-to-l hover:from-blue-500 hover:to-indigo-600 text-gray-100 p-2 rounded-full tracking-wide font-semibold shadow-lg cursor-pointer transition ease-in duration-500 w-full sm:w-32 mr-3">メッセージ</a>
                                         <form method="post">
                                             @csrf
                                             @method('PATCH')
@@ -113,7 +229,6 @@
                         @endforeach
                     </tbody>
                 </table>
-
             </div>
         @endif
     </div>
