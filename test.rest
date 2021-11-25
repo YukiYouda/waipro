@@ -60,7 +60,7 @@ Authorization: Bearer 3|vRpdutL8z22T4tgSyTzSEcG6EHwrBr50MF9zQnYI
 GET /api/recruitments/dashboard/ HTTP/1.1
 Host: localhost
 Accept: application/json
-Authorization: Bearer 4|zfMYhikEnuuN4KTXiW5cTU69zGfMK6JMRVBFEgRR
+Authorization: Bearer 9|YU7fJpU9ucvHuwxqLV1rGFafdcgkIhjdhQYBzS9T
 
 ### RegisterController
 ### register

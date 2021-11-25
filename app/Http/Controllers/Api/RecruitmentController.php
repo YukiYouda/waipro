@@ -89,7 +89,7 @@ class RecruitmentController extends Controller
     public function dashboard()
     {
         $recruitments = Recruitment::latest()
-            ->with('entries')
+            ->load('entries', 'user', 'category')
             ->MyRecruitment()
             ->paginate(5);
 

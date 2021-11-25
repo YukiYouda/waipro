@@ -420,26 +420,26 @@
                         fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                         <path d="M96 0V47L48 94H0V47L48 0H96Z" />
                     </svg>
-                    わいプロ
+                    ごりプロ
                 </a>
                 <!-- logo - end -->
             </header>
             <section
                 class="min-h-96 flex justify-center items-center flex-1 flex-shrink-0 bg-gray-100 overflow-hidden shadow-lg rounded-lg relative py-16 md:py-20 xl:py-48">
                 <!-- image - start -->
-                <img src="https://images.unsplash.com/photo-1618004652321-13a63e576b80?auto=format&q=75&fit=crop&w=1500"
-                    loading="lazy" alt="Photo by Fakurian Design"
+                <img src="/images/bg_gorilla_office.png" loading="lazy" alt="Photo by Fakurian Design"
                     class="w-full h-full object-cover object-center absolute inset-0" />
                 <!-- image - end -->
 
                 <!-- overlay - start -->
-                <div class="bg-indigo-500 mix-blend-multiply absolute inset-0"></div>
+                <div class="mix-blend-multiply absolute inset-0"></div>
                 <!-- overlay - end -->
 
                 <!-- text start -->
                 <div class="sm:max-w-xl flex flex-col items-center relative p-4">
-                    <h1 class="text-white text-4xl sm:text-5xl md:text-6xl font-bold text-center mb-8 md:mb-8">わいプロ</h1>
-                    <p class="text-indigo-200 text-lg sm:text-xl text-center mb-4 md:mb-8">さあ、チーム開発をしよう！</p>
+                    <h1 class="text-black text-4xl sm:text-5xl md:text-6xl font-bold text-center mb-8 md:mb-8">ごりプロ</h1>
+                    <p class="text-black text-lg sm:text-xl font-bold text-center mb-4 md:mb-8">ごりごりコードを書いて、ごりごり成長しよう！
+                    </p>
                     <div class="w-full flex flex-col sm:flex-row sm:justify-center gap-2.5">
                         <a href="{{ route('login') }}"
                             class="inline-block bg-indigo-500 hover:bg-indigo-600 active:bg-indigo-700 focus-visible:ring ring-indigo-300 text-white text-sm md:text-base font-semibold text-center rounded-lg outline-none transition duration-100 px-8 py-3">ログイン</a>
@@ -449,17 +449,16 @@
                     </div>
                 </div>
                 <!-- text end -->
-
             </section>
             <!-- features - start -->
             <div class="bg-white py-6 sm:py-8 lg:py-12">
                 <div class="max-w-screen-2xl px-4 md:px-8 mx-auto">
                     <!-- text - start -->
                     <div class="mb-10 md:mb-16">
-                        <h2 class="text-gray-800 text-2xl lg:text-3xl font-bold text-center mb-4 md:mb-6">わいプロの特徴</h2>
+                        <h2 class="text-gray-800 text-2xl lg:text-3xl font-bold text-center mb-4 md:mb-6">ごりプロの特徴</h2>
 
-                        <p class="max-w-screen-md text-gray-500 md:text-lg text-center mx-auto">
-                            わいプロはチーム開発をしながらスキルアップできるサイトです。</p>
+                        <p class="text-gray-500 md:text-lg text-center mx-auto">
+                            ごりプロは一緒にチーム開発をする仲間を探し、仲間とごりごりコードを書いて、ごりごりスキルアップできるサービスです。</p>
                     </div>
                     <!-- text - end -->
 
@@ -477,7 +476,7 @@
 
                             <div>
                                 <h3 class="text-lg md:text-xl font-semibold mb-2">スキルアップ</h3>
-                                <p class="text-gray-500 mb-2">チーム開発を通してスキルアップできます！</p>
+                                <p class="text-gray-500 mb-2">チーム開発を通して、より実際の現場に近いスキルを習得することができます！</p>
                             </div>
                         </div>
                         <!-- feature - end -->
@@ -489,31 +488,31 @@
                                 <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none"
                                     viewBox="0 0 24 24" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-                                </svg>
-                            </div>
-
-                            <div>
-                                <h3 class="text-lg md:text-xl font-semibold mb-2">Git</h3>
-                                <p class="text-gray-500 mb-2">Gitの使い方を実践的に学べます！</p>
-                            </div>
-                        </div>
-                        <!-- feature - end -->
-
-                        <!-- feature - start -->
-                        <div class="flex gap-4 md:gap-6">
-                            <div
-                                class="w-12 md:w-14 h-12 md:h-14 flex justify-center items-center flex-shrink-0 bg-indigo-500 text-white rounded-lg md:rounded-xl shadow-lg">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none"
-                                    viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" />
+                                        d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
                                 </svg>
                             </div>
 
                             <div>
                                 <h3 class="text-lg md:text-xl font-semibold mb-2">仲間</h3>
-                                <p class="text-gray-500 mb-2">一緒に学習する仲間を見つけることができます！</p>
+                                <p class="text-gray-500 mb-2">一緒に学習する仲間を見つけ、独学のモチベーションを維持し、互いに高め合うことができます！</p>
+                            </div>
+                        </div>
+                        <!-- feature - end -->
+
+                        <!-- feature - start -->
+                        <div class="flex gap-4 md:gap-6">
+                            <div
+                                class="w-12 md:w-14 h-12 md:h-14 flex justify-center items-center flex-shrink-0 bg-indigo-500 text-white rounded-lg md:rounded-xl shadow-lg">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none"
+                                    viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+                                </svg>
+                            </div>
+
+                            <div>
+                                <h3 class="text-lg md:text-xl font-semibold mb-2">転職</h3>
+                                <p class="text-gray-500 mb-2">チーム開発で作った制作物を用いて転職することができます！</p>
                             </div>
                         </div>
                         <!-- feature - end -->
@@ -523,7 +522,118 @@
             <!-- features - end -->
         </div>
     </div>
+    <div>
+        <h2 class="text-gray-800 text-2xl lg:text-3xl font-bold text-center">ご利用の流れ</h2>
+    </div>
     <!-- hero - end -->
+    <div class="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
+        <div class="grid gap-6 row-gap-10 lg:grid-cols-2">
+            <div class="lg:py-6 lg:pr-16">
+                <div class="flex">
+                    <div class="flex flex-col items-center mr-4">
+                        <div>
+                            <div class="flex items-center justify-center w-10 h-10 border rounded-full">
+                                <svg class="w-4 text-gray-600" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                                    <line fill="none" stroke-miterlimit="10" x1="12" y1="2" x2="12" y2="22"></line>
+                                    <polyline fill="none" stroke-miterlimit="10" points="19,15 12,22 5,15"></polyline>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="w-px h-full bg-gray-300"></div>
+                    </div>
+                    <div class="pt-1 pb-8">
+                        <p class="mb-2 text-lg font-bold">Step 1</p>
+                        <p class="text-gray-700">
+                            まずは、自分のGithubアカウントを用意してください。
+                        </p>
+                    </div>
+                </div>
+                <div class="flex">
+                    <div class="flex flex-col items-center mr-4">
+                        <div>
+                            <div class="flex items-center justify-center w-10 h-10 border rounded-full">
+                                <svg class="w-4 text-gray-600" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                                    <line fill="none" stroke-miterlimit="10" x1="12" y1="2" x2="12" y2="22"></line>
+                                    <polyline fill="none" stroke-miterlimit="10" points="19,15 12,22 5,15"></polyline>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="w-px h-full bg-gray-300"></div>
+                    </div>
+                    <div class="pt-1 pb-8">
+                        <p class="mb-2 text-lg font-bold">Step 2</p>
+                        <p class="text-gray-700">
+                            自分の作りたいアプリを見つけて、チーム開発に参加しよう！ もしくは、自分で作りたいアプリのチームメンバーを募集しよう！
+                        </p>
+                    </div>
+                </div>
+                <div class="flex">
+                    <div class="flex flex-col items-center mr-4">
+                        <div>
+                            <div class="flex items-center justify-center w-10 h-10 border rounded-full">
+                                <svg class="w-4 text-gray-600" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                                    <line fill="none" stroke-miterlimit="10" x1="12" y1="2" x2="12" y2="22"></line>
+                                    <polyline fill="none" stroke-miterlimit="10" points="19,15 12,22 5,15"></polyline>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="w-px h-full bg-gray-300"></div>
+                    </div>
+                    <div class="pt-1 pb-8">
+                        <p class="mb-2 text-lg font-bold">Step 3</p>
+                        <p class="text-gray-700">
+                            一緒に開発できる仲間が見つかったら、ごりごりコードを書いて、ごりごり開発しよう！
+                        </p>
+                    </div>
+                </div>
+                <div class="flex">
+                    <div class="flex flex-col items-center mr-4">
+                        <div>
+                            <div class="flex items-center justify-center w-10 h-10 border rounded-full">
+                                <svg class="w-4 text-gray-600" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                                    <line fill="none" stroke-miterlimit="10" x1="12" y1="2" x2="12" y2="22"></line>
+                                    <polyline fill="none" stroke-miterlimit="10" points="19,15 12,22 5,15"></polyline>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="w-px h-full bg-gray-300"></div>
+                    </div>
+                    <div class="pt-1 pb-8">
+                        <p class="mb-2 text-lg font-bold">Step 4</p>
+                        <p class="text-gray-700">
+                            あなたのGithubのリポジトリを企業が見て、採用のオファーが届きます！
+                        </p>
+                    </div>
+                </div>
+                <div class="flex">
+                    <div class="flex flex-col items-center mr-4">
+                        <div>
+                            <div class="flex items-center justify-center w-10 h-10 border rounded-full">
+                                <svg class="w-6 text-gray-600" stroke="currentColor" viewBox="0 0 24 24">
+                                    <polyline fill="none" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" stroke-miterlimit="10" points="6,12 10,16 18,8">
+                                    </polyline>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pt-1">
+                        <p class="mb-2 text-lg font-bold">内定</p>
+                        <p class="text-gray-700"></p>
+                    </div>
+                </div>
+            </div>
+            <div class="relative">
+                <img class="inset-0 object-cover object-bottom w-full rounded shadow-lg h-96 lg:absolute lg:h-full"
+                    src="https://images.pexels.com/photos/3184287/pexels-photo-3184287.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=750&amp;w=1260"
+                    alt="" />
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>
