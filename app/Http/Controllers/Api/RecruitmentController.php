@@ -27,7 +27,7 @@ class RecruitmentController extends Controller
         // $categories = Category::all();
         // return ["recruitments" => $recruitments, "categories" => $categories];
 
-        $recruitments = Recruitment::all();
+        $recruitments = Recruitment::latest()->get();
         $recruitments->load('user', 'category');
 
         return  $recruitments;
