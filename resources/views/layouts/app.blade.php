@@ -17,6 +17,29 @@
 
         <!-- Scripts -->
         <script src="{{ mix('js/app.js') }}" defer></script>
+        <style>
+            /* 他人のコメントの吹き出し */
+            .other::before {
+                content: "";
+                position: absolute;
+                top: 90%;
+                left: -15px;
+                margin-top: -30px;
+                border: 5px solid transparent;
+                border-right: 15px solid #c7deff;
+            }
+
+            /* 自身のコメントの吹き出し */
+            .self::after {
+                content: "";
+                position: absolute;
+                top: 50%;
+                left: 100%;
+                margin-top: -15px;
+                border: 3px solid transparent;
+                border-left: 9px solid #c7deff;
+            }
+        </style>
     </head>
     <body class="font-sans antialiased">
         <x-jet-banner />

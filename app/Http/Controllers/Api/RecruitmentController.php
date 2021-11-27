@@ -88,10 +88,9 @@ class RecruitmentController extends Controller
 
     public function dashboard()
     {
-        $recruitments = Recruitment::latest()
-            ->load('entries', 'user', 'category')
-            ->MyRecruitment()
-            ->paginate(5);
+        $recruitments = Recruitment::where('user_id', auth()->user()->id);
+        // latest()->get()
+        //     ->MyRecruitment();
 
         return $recruitments;
     }

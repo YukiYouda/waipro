@@ -20,11 +20,22 @@
         </form>
     </div>
 
-    @foreach ($messages as $message)
+    <div class="w-4/5 md:w-3/5 lg:w-2/5 m-auto mt-10 pb-10">
+            <ul>
+                @foreach ($messages as $message)
+                    <p class="text-xs @if($message->user_id == auth()->user()->id) text-right @endif">{{$message->created_at}} ＠{{$message->user->name}}</p>
+                    <li class="w-max mb-3 p-2 rounded-lg bg-blue-200 relative @if($message->user_id == auth()->user()->id) self ml-auto @else other @endif">
+                        {{$message->body}}
+                    </li>
+                @endforeach
+            </ul>
+    </div>
+
+    {{-- @foreach ($messages as $message)
         <div class="container lg:w-1/2 md:w-4/5 w-11/12 mx-auto mt-3 px-8 bg-white shadow-md mb-4">
             {{ $message->created_at }} {{ $message->user->name }} <br>
             {{ $message->body }}
         </div>
-    @endforeach
+    @endforeach --}}
     
 </x-app-layout>
